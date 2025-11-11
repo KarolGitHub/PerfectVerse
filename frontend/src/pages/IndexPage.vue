@@ -1,5 +1,16 @@
 <template>
   <q-page class="row items-center justify-evenly">
+    <div style="width: 600px; height: 400px;">
+      <TresCanvas clear-color="#222">
+        <TresPerspectiveCamera :position="[0, 0, 5]" />
+        <TresMesh>
+          <TresBoxGeometry :args="[1, 1, 1]" />
+          <TresMeshStandardMaterial color="skyblue" />
+        </TresMesh>
+        <TresAmbientLight :intensity="0.5" />
+        <TresDirectionalLight :position="[2, 2, 2]" :intensity="1" />
+      </TresCanvas>
+    </div>
     <example-component
       title="Example component"
       active
@@ -11,6 +22,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue';
+import { TresCanvas, TresPerspectiveCamera, TresMesh, TresBoxGeometry, TresMeshStandardMaterial, TresAmbientLight, TresDirectionalLight } from '@tresjs/core';
 import type { Todo, Meta } from 'components/models';
 import ExampleComponent from 'components/ExampleComponent.vue';
 
